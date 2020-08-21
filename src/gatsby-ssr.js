@@ -11,6 +11,10 @@ export const onRenderBody = (
   if (pluginOptions.googleAdClientId === undefined) {
     logger.throwErorr("googleAdClientId is not set");
   }
+  if (pluginOptions.enable === false) {
+    logger.warningConsoleLogger("plugin disabled");
+    return null;
+  }
   const setComponents = pluginOptions.head
     ? setHeadComponents
     : setPostBodyComponents;
